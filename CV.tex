@@ -1,8 +1,11 @@
 \documentclass{article}
+\usepackage[a4paper, margin=0.5in, top=0.2in]{geometry} % Adjust the top margin as needed
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
-\usepackage{tcolorbox}
-\usepackage{pgffor}
+\usepackage{fontawesome}
+\usepackage{enumitem}
+\usepackage{url}
+\input{components.tex}
 \tcbuselibrary{fitting}
 
 \IfFileExists{info.tex}{
@@ -16,23 +19,20 @@
         Definetly not LaTeX
     }
 }
-
-\title{Lorem Ipsum}
-\author{\name\space\surname}
-\date{\today}
-
+\pagecolor{lightblue}
 \begin{document}
 
-\maketitle
+\begin{itemize}[label={\textbullet}]
+    \item[\faPhone] +1 (123) 456-7890
+    \item[\faEnvelope] john.doe@example.com
+    \item[\faHome] 123 Main St, City, Country
+    \item[\faLink] \url{www.example.com}
+\end{itemize}
 
-\mbox{
-    \foreach \hobby in \hobbies {
-        \begin{tcolorbox}[fit, hbox, equal height group=boxes]
-            \hobby
-        \end{tcolorbox}
-    }
-}
+\changepagecolor{white}
 
+
+\printBoxes{\hobbies}
 \section{Introduction}
 
 \lipsum[1]

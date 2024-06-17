@@ -1,0 +1,51 @@
+\usepackage{tcolorbox}
+\usepackage{pgffor}
+\newcommand{\printBoxes}[1]{%
+    \mbox{
+        \foreach \hobby in #1 {
+            \begin{tcolorbox}[fit, hbox, equal height group=boxes]
+                \hobby
+            \end{tcolorbox}
+        }
+    }
+}
+
+% Change color midway
+% src: https://tex.stackexchange.com/questions/236949/how-to-change-the-background-color-within-a-page
+% By: Heiko Oberdiek
+\usepackage{color}
+\usepackage{afterpage}
+\makeatletter
+% Macro \changepagecolor has the same syntax as \pagecolor or \color
+% with an optional argument and a mandatory argument.
+\newcommand*{\changepagecolor}{%
+  \@ifnextchar[\@changepagecolor@i\@changepagecolor@ii
+}
+% Case: \changepagecolor[...]{...}
+\def\@changepagecolor@i[#1]#2{%
+  \@changepagecolor@do{[{#1}]{#2}}%
+}
+% Case: \changepagecolor{...}
+\newcommand*{\@changepagecolor@ii}[1]{%
+  \@changepagecolor@do{{#1}}%
+}
+\newcommand*{\@changepagecolor@do}[1]{%
+  % Fill the remaining space with a colored rule
+  \begingroup
+    \offinterlineskip
+    \hbox to 0pt{%
+      \kern-\paperwidth
+      \vtop to 0pt{%
+        \color#1%
+        \hrule width 2\paperwidth height \paperheight
+        \vss
+      }%
+      \hss
+    }%
+  \endgroup
+  % Set page color for the next page
+  \afterpage{\pagecolor#1}%
+}
+\makeatother
+
+\definecolor{lightblue}{RGB}{173,216,230}

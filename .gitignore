@@ -2,3 +2,6 @@
 !.gitignore
 !*.tex
 !README.md
+
+# Keep info.tex file ignored for a little while
+info.tex

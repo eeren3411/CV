@@ -1,14 +1,37 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
+\usepackage{tcolorbox}
+\usepackage{pgffor}
+\tcbuselibrary{fitting}
+
+\IfFileExists{info.tex}{
+  \input{info.tex}
+}{
+    \def\name{John}
+    \def\surname{DOE}
+    \def\hobbies{
+        LaTeX,
+        Not LaTeX,
+        Definetly not LaTeX
+    }
+}
 
 \title{Lorem Ipsum}
-\author{John Doe}
+\author{\name\space\surname}
 \date{\today}
 
 \begin{document}
 
 \maketitle
+
+\mbox{
+    \foreach \hobby in \hobbies {
+        \begin{tcolorbox}[fit, hbox, equal height group=boxes]
+            \hobby
+        \end{tcolorbox}
+    }
+}
 
 \section{Introduction}
 

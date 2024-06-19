@@ -1,0 +1,36 @@
+% Requires: xkeyval, ifthen
+
+\newlength{\boxTopOffset}
+\setlength{\boxTopOffset}{0.2in} % Currently not used
+\newlength{\boxSize}
+\setlength{\boxSize}{0.3in}
+\newlength{\boxGap}
+\setlength{\boxGap}{0.15in}
+\newlength{\minipageSize}
+\setlength{\minipageSize}{\dimexpr \textwidth-\boxSize-\boxGap \relax}
+
+\makeatletter
+\define@key{wrapperKeys}{isLeft}[true]{\def\isLeft{#1}}
+\makeatother
+
+\NewEnviron{customWrapper}[1][]{%
+    \setkeys{wrapperKeys}{isLeft=true,#1}%
+    \ifthenelse{\equal{\isLeft}{true}}{%
+        \noindent%
+        \begin{tikzpicture}%
+            \fill[black] (0,0) rectangle (\boxSize,\boxSize);%
+        \end{tikzpicture}%
+        \hspace{\boxGap}%
+    }{}%
+    \noindent%
+    \begin{minipage}[t]{\minipageSize}%
+        \BODY%
+    \end{minipage}%
+    \ifthenelse{\equal{\isLeft}{false}}{%
+        \hspace*{\boxGap}%
+        \noindent%
+        \begin{tikzpicture}%
+            \fill[black] (0,0) rectangle (\boxSize,\boxSize);%
+        \end{tikzpicture}%
+    }{}%
+}

@@ -1,67 +1,18 @@
 \documentclass{article}
-\usepackage[a4paper, margin=0.5in, top=0.2in]{geometry} % Adjust the top margin as needed
-\usepackage[utf8]{inputenc}
-\usepackage{lipsum}
-\usepackage{fontawesome}
-\usepackage{enumitem}
-\usepackage{url}
-\usepackage{varwidth}
-\usepackage{tcolorbox}
-\usepackage{multicol}
-\usepackage{hyperref}
-\input{helpers.tex}
-\tcbuselibrary{fitting}
 
-\IfFileExists{info.tex}{
-  \input{info.tex}
-}{
-    \def\identityName{John DOE}
-    \def\identityDesc {I'm John DOE}
-    \def\identityEmail{johndoe@email.com}
-    \def\identityPhone{+90 (555) 555 5555}
-    \def\identityHome{Turkey}
-    \def\identityLinkedIn{in/linkedinUser}
-    \def\identityStackOverflow{/00000000/stackUser}
-    \def\hobbies{
-        LaTeX,
-        Not LaTeX,
-        Definetly not LaTeX
-    }
-}
+\input{preamble.tex}
+
 \pagecolor{lightblue}
+
 \begin{document}
-\noindent
-\begin{minipage}[b]{0.35\textwidth}
-    \raggedright
-    {\huge \textbf{\identityName}}\\
-    \vspace{0.1in}
-    \identityDesc
-\end{minipage}%
 %
-\begin{minipage}[c]{0.30\textwidth}
-    \centering
-    \begin{tcolorbox}[width=\textwidth]
-        This is a red box that spans the entire \textbackslash textwidth.
-    \end{tcolorbox}
-\end{minipage}%
+\input{parts/header.tex}
 %
-\hspace{0.11\textwidth}
-\begin{minipage}[c]{0.25\textwidth}
-    \begin{itemize}[label={\textbullet}]
-        \item[\faEnvelope] \href{mailto:\identityEmail}{\identityEmail}
-        \item[\faPhone] \identityPhone
-        \item[\faHome] \identityHome
-        \item[\faLinkedin] \href{https://www.linkedin.com\identityLinkedIn}{\identityLinkedIn}
-        \item[\faStackOverflow] \href{https://stackoverflow.com/users\identityStackOverflow}{\identityStackOverflow}
-    \end{itemize}
-\end{minipage}
-\\ \\ 
 \changepagecolor{white}
 
 
-\printBoxes{\hobbies}
+\boxes{\hobbies}
 \section{Introduction}
 
 \lipsum[1]
-
 \end{document}

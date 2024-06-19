@@ -1,0 +1,37 @@
+\usepackage[a4paper, margin=0.5in, top=0.2in]{geometry} % Adjust the top margin as needed
+\usepackage[utf8]{inputenc}
+\usepackage{afterpage}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{fontawesome}
+\usepackage{hyperref}
+\usepackage{lipsum}
+\usepackage{multicol}
+\usepackage{pgffor}
+\usepackage{tcolorbox}
+\usepackage{url}
+\usepackage{varwidth}
+
+\input{functions/changepagecolor.tex}
+\input{components/boxes.tex}
+
+\tcbuselibrary{fitting}
+
+\IfFileExists{info.tex}{
+  \input{info.tex}
+}{
+    \def\identityName{John DOE}
+    \def\identityDesc {I'm John DOE}
+    \def\identityEmail{johndoe@email.com}
+    \def\identityPhone{+90 (555) 555 5555}
+    \def\identityHome{Turkey}
+    \def\identityLinkedIn{in/linkedinUser}
+    \def\identityStackOverflow{/00000000/stackUser}
+    \def\hobbies{
+        LaTeX,
+        Not LaTeX,
+        Definetly not LaTeX
+    }
+}
+
+\definecolor{lightblue}{RGB}{173,216,230}

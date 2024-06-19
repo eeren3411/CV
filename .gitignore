@@ -1,7 +1,14 @@
-*
-!.gitignore
-!*.tex
+# Ignore everything
+*.*
+
+# Include .tex files at any directory level
+!**/*.tex
+
+# Include README.md
 !README.md
 
-# Keep info.tex file ignored for a little while
+# Include gitignore
+!.gitignore
+
+# Keep info.tex file ignored
 info.tex

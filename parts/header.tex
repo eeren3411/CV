@@ -1,26 +1,50 @@
-\noindent
-\begin{minipage}[b]{0.35\textwidth}
-    \raggedright
-    {\huge \textbf{\identityName}}\\
-    \vspace{0.1in}
-    \identityDesc
-\end{minipage}%
-%
-\begin{minipage}[c]{0.30\textwidth}
-    \centering
-    \begin{tcolorbox}[width=\textwidth]
-        This is a red box that spans the entire \textbackslash textwidth.
-    \end{tcolorbox}
-\end{minipage}%
-%
-\hspace{0.11\textwidth}
-\begin{minipage}[c]{0.25\textwidth}
-    \begin{itemize}[label={\textbullet}]
-        \item[\faEnvelope] \href{mailto:\identityEmail}{\identityEmail}
-        \item[\faPhone] \identityPhone
-        \item[\faHome] \identityHome
-        \item[\faLinkedin] \href{https://www.linkedin.com\identityLinkedIn}{\identityLinkedIn}
-        \item[\faStackOverflow] \href{https://stackoverflow.com/users\identityStackOverflow}{\identityStackOverflow}
-    \end{itemize}
-\end{minipage}
-\\ \\ 
+\newlength{\headerSideMargin}
+\setlength{\headerSideMargin}{0.2in}
+\newlength{\headerTopMargin}
+\setlength{\headerTopMargin}{0.2in}
+\newlength{\headerWidth}
+\setlength{\headerWidth}{\dimexpr \textwidth-2\headerSideMargin \relax}
+
+\topskip=0pt
+
+% Requires: tikz, graphicx, xcolor, enumitem, fontawesome, hyperref
+\newcommand{\header}{
+    \vspace*{\headerTopMargin}
+    \noindent
+    \hspace*{\headerSideMargin}
+    \begin{minipage}[b]{0.35\headerWidth}
+        \raggedright
+        {\huge \textbf{\identityName}}\\
+        \vspace{0.1in}
+        \identityDesc
+    \end{minipage}%
+    %
+    \begin{minipage}[c]{0.3\headerWidth}
+        \centering
+        \noindent
+        \begin{tikzpicture}
+            \centering
+            \fill[blue] (0,0) circle(0.26\textwidth);
+            \clip (0,0) circle (0.25\textwidth) node {\includegraphics[width=0.5\textwidth]{images/pp.jpeg}};
+        \end{tikzpicture}
+        % {%
+        %     \setlength{\fboxsep}{0pt}%
+        %     \setlength{\fboxrule}{2pt}%
+        %     \renewcommand\fbox{\fcolorbox{blue}{white}}
+        %     \fbox{\includegraphics[width=0.6\textwidth]{images/pp.jpeg}}
+        % }%
+    \end{minipage}%
+    %
+    \hspace*{0.09\headerWidth}
+    \begin{minipage}[c]{0.28\headerWidth}
+        \begin{itemize}[label={\textbullet}]
+            \item[\faEnvelope] \href{mailto:\identityEmail}{\identityEmail}
+            \item[\faPhone] \identityPhone
+            \item[\faHome] \identityHome
+            \item[\faLinkedin] \href{https://www.linkedin.com\identityLinkedIn}{\identityLinkedIn}
+            \item[\faStackOverflow] \href{https://stackoverflow.com/users\identityStackOverflow}{\identityStackOverflow}
+        \end{itemize}
+    \end{minipage}
+
+    \vspace*{\headerTopMargin}
+}

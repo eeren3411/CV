@@ -1,0 +1,18 @@
+\newlength{\mainSideMargin}
+\setlength{\mainSideMargin}{0.2in}
+\newlength{\mainTopMargin}
+\setlength{\mainTopMargin}{0.1in}
+\newlength{\mainWidth}
+\setlength{\mainWidth}{\dimexpr \textwidth-2\headerSideMargin \relax}
+
+\topskip=0pt
+
+% Requires: 
+\newcommand{\main}{%
+    \vspace*{\mainTopMargin}
+    \noindent
+    \boxes{\hobbies}
+    \section{Introduction}
+
+    \lipsum[1]
+}

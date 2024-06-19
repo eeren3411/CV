@@ -10,5 +10,8 @@
 # Include gitignore
 !.gitignore
 
+# Include temporary images
+!images/*
+
 # Keep info.tex file ignored
 info.tex

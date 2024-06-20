@@ -13,7 +13,7 @@
 \define@key{wrapperKeys}{isLeft}[true]{\def\isLeft{#1}}
 \makeatother
 
-\NewEnviron{customWrapper}[1][]{%
+\NewEnviron{sectionWrapper}[1][]{%
     \setkeys{wrapperKeys}{isLeft=true,#1}%
     \ifthenelse{\equal{\isLeft}{true}}{%
         \noindent%

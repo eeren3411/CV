@@ -1,7 +1,7 @@
 \newlength{\headerSideMargin}
 \setlength{\headerSideMargin}{0.2in}
 \newlength{\headerTopMargin}
-\setlength{\headerTopMargin}{0.2in}
+\setlength{\headerTopMargin}{0.15in}
 \newlength{\headerWidth}
 \setlength{\headerWidth}{\dimexpr \textwidth-2\headerSideMargin \relax}
 
@@ -24,7 +24,7 @@
         \noindent
         \begin{tikzpicture}
             \centering
-            \fill[blue] (0,0) circle(0.26\textwidth);
+            \fill[borderColor] (0,0) circle(0.26\textwidth);
             \clip (0,0) circle (0.25\textwidth) node {\includegraphics[width=0.5\textwidth]{\identityPicturePath}};
         \end{tikzpicture}
         % {%

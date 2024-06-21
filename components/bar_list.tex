@@ -1,0 +1,32 @@
+% Requires: xparse, tikz, pgfkeys
+
+\usepackage{pgfkeys}
+
+\NewDocumentEnvironment{barList}{o}{%
+    \noindent%
+    \IfNoValueF{#1}{{\Huge #1}}
+    \begin{itemize}
+}{%
+    \end{itemize}
+}
+
+\newlength{\fullBarSize}
+\newcommand{\createBar}[2]{%
+    \setlength{\fullBarSize}{\dimexpr \textwidth-\labelwidth-\labelsep}%
+    \noindent%
+    \begin{minipage}[c]{0.5\fullBarSize}
+        #1%
+    \end{minipage}%
+    \begin{minipage}[c]{0.5\fullBarSize}%
+        \begin{tikzpicture}%
+            % Draw the empty bar
+            \draw[fill=gray!20] (0,0) rectangle (\textwidth, \ht\strutbox);%
+            % Draw the filled portion
+            \draw[fill=blue] (0,0) rectangle (#2\textwidth, \ht\strutbox);%
+        \end{tikzpicture}%
+    \end{minipage}%
+}
+
+\NewDocumentCommand{\barValue}{ m m }{%
+    \item \createBar{#1}{#2}
+}

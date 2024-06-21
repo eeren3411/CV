@@ -3,20 +3,11 @@
 \usepackage{afterpage}
 \usepackage{color}
 \usepackage{enumitem}
-\usepackage{environ}
 \usepackage{fontawesome}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{ifthen}
-\usepackage{lipsum}
-\usepackage{multicol}
-\usepackage{pgffor}
 \usepackage[most]{tcolorbox}
-\usepackage{tikz}
-\usepackage{url}
-\usepackage{varwidth}
-\usepackage{xkeyval}
-\usepackage{xparse}
 
 \input{functions/changepagecolor.tex}
 \input{components/boxes.tex}
@@ -31,7 +22,7 @@
 
 \tcbuselibrary{fitting}
 
-\IfFileExists{info.tex}{
+\IfFileExists{info2.tex}{
   \input{info.tex}
 }{
     \def\identityName{John DOE}
@@ -42,11 +33,83 @@
     \def\identityHome{Turkey}
     \def\identityLinkedIn{in/linkedinUser}
     \def\identityStackOverflow{/00000000/stackUser}
-    \def\hobbies{
-        LaTeX,
-        Not LaTeX,
-        Definetly not LaTeX
+    \def\experienceCollege{University}
+    \def\experienceCollegeDate{MÖ:9999-2021}
+    \def\experienceCollegeGainz{
+        Hardships,
+        Studying,
+        Not getting girls,
+        Being a nerd,
+        More studying,
+        A lot more studying
+    }
+    \def\experienceFirstInternship{Rock Relocation Group}
+    \def\experienceFirstInternshipDescription{Professional Pyramid Stacker}
+    \def\experienceFirstIntershipDate{2020-2020}
+    \def\expereinceFirstInternshipGainz{
+        Stones,
+        Muscle,
+        CARRYING
+    }
+    \def\experienceSecondInternship{Transporters}
+    \def\experienceSecondInternshipDescription{Human Elevator Operator}
+    \def\experienceSecondInternshipDate{2021-2021}
+    \def\experienceSecondInternshipGainz{
+        Personal Pharaoh Pusher,
+        Royal Hammock Holder,
+        Mighty Mummy Mover
+    }
+    \def\experienceFirstJob{Flavian Amphitheatre}
+    \def\experienceFirstJobDescription{Coliseum Combat Cleaner}
+    \def\experienceFirstJobDate{2022-2024}
+    \def\experienceFirstJobGainz{
+        Scrubbing the blood and sweat,
+        using nothing but a rag and sheer determination
+    }
+    \def\interests{
+        Grasses,
+        Rocks,
+        Water,
+        Trees,
+        Bugs
+    }
+    \def\softSkills{
+        Nap-time Strategist,
+        Cloud Shapes Analyst,
+        Hide-and-Seek
+    }
+    \def\technicalSkills{
+        Dance Floor Innovator,
+        Bug Whisperer,
+        Mud Sculptor,
+        Master of Chicken Impersonations
+    }
+    \def\languages{
+        Human (Native)/1,
+        Bug Language (A lot)/0.8,
+        Royals (wtf they're talking about?)/0.2
+    }
+    \def\programmingLanguages{
+        MuleScript/0.65,
+        PigeonCode/0.8,
+        GourdQuery/0.85,
+        QuillC/0.75,
+        HovelHTML/0.6,
+        ShackleShell/0.3,
+        HaystackJS/0.95,
+        LaTeX/10
+    }
+    \def\databases{
+        FieldStoneDB,
+        HarvestHoarder,
+        CropSQL,
+        QuillQuery
     }
 }
 
 \definecolor{lightblue}{RGB}{173,216,230}
+
+%I have no idea why but even before first line of the document, there is always an empty page.
+%My brain rotten and I cant solve the issue. So just DESTORY FIRST PAGE
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+%\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}

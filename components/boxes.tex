@@ -1,12 +1,12 @@
 % Requires: tcolorbox, pgffor
-\newcommand{\boxes}[1]{%
+\newcommand{\boxes}[1]{
     \noindent
-    \mbox{
-        \foreach \hobby in #1 {
-            \begin{tcolorbox}[fit, hbox, equal height group=boxes]
-                \hobby
-            \end{tcolorbox}
-        }
-    }
+    \begin{tcbraster}[raster force size=false, raster equal height]%
+        \foreach \hobby in #1 {%
+            \begin{tcolorbox}[fit, hbox]%
+                \hobby%
+            \end{tcolorbox}%
+        }%
+    \end{tcbraster}%
 }
 

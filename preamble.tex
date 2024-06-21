@@ -16,6 +16,7 @@
 \usepackage{url}
 \usepackage{varwidth}
 \usepackage{xkeyval}
+\usepackage{xparse}
 
 \input{functions/changepagecolor.tex}
 \input{components/boxes.tex}
@@ -30,7 +31,7 @@
 
 \tcbuselibrary{fitting}
 
-\IfFileExists{info.tex}{
+\IfFileExists{info2.tex}{
   \input{info.tex}
 }{
     \def\identityName{John DOE}

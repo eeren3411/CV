@@ -1,10 +1,14 @@
-% Requires: 
+% Requires: ifthen
 \newcommand{\experience}[4]{% 1-Title, 2-Description, 3-Time, 4-gains
-    {\Huge #1} \hfill {\small \textcolor{red}{#3}} \\
-    {\small #2}
-    \begin{itemize}
-        \foreach \gain in #4 {
-            \item \gain
-        }
-    \end{itemize}
+    \textbf{\LARGE #1}% Title
+    \ifthenelse{\equal{#3}{}}{}{\hfill {\small \textcolor{red}{#3}}}% Date
+    \ifthenelse{\equal{#2}{}}{}{\\ {\small #2}}% Description
+    %
+    \ifthenelse{\equal{#4}{}}{\\}{
+        \begin{itemize}
+            \foreach \gain in #4     {
+                \item \gain
+            }
+        \end{itemize}
+    }
 }

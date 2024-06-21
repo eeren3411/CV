@@ -14,9 +14,10 @@
 \newcommand{\createBar}[2]{%
     \setlength{\fullBarSize}{\dimexpr \textwidth-\labelwidth-\labelsep}%
     \noindent%
-    \begin{minipage}[c]{0.5\fullBarSize}
+    \begin{minipage}[c]{0.4\fullBarSize}
         #1%
     \end{minipage}%
+    \hspace*{0.1\fullBarSize}
     \begin{minipage}[c]{0.5\fullBarSize}%
         \begin{tikzpicture}%
             % Draw the empty bar

@@ -6,8 +6,8 @@
 \setlength{\boxSize}{0.3in}
 \newlength{\boxGap}
 \setlength{\boxGap}{0.15in}
+
 \newlength{\minipageSize}
-\setlength{\minipageSize}{\dimexpr \textwidth-\boxSize-2\boxGap \relax}
 
 \makeatletter
 \define@key{wrapperKeys}{isLeft}[true]{\def\isLeft{#1}}
@@ -16,12 +16,13 @@
 \NewEnviron{sectionWrapper}[1][]{%
     \setkeys{wrapperKeys}{isLeft=true,#1}%
     \ifthenelse{\equal{\isLeft}{true}}{%
+        \setlength{\minipageSize}{\dimexpr \textwidth-\boxSize-2\boxGap \relax}%
         \noindent%
         \begin{tikzpicture}%
             \fill[black] (0,0) rectangle (\boxSize,\boxSize);%
         \end{tikzpicture}%
         \hspace{\boxGap}%
-    }{}%
+    }{\setlength{\minipageSize}{\dimexpr \textwidth-\boxSize-\boxGap \relax}}%
     \noindent%
     \begin{minipage}[t]{\minipageSize}%
         \BODY%

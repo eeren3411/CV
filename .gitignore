@@ -13,5 +13,8 @@
 # Include temporary images
 !images/*
 
+# Finally include an example CV
+!CV.pdf
+
 # Keep info.tex file ignored
 info.tex

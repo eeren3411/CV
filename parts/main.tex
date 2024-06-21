@@ -1,17 +1,70 @@
-\newlength{\mainSideMargin}
-\setlength{\mainSideMargin}{0.2in}
 \newlength{\mainTopMargin}
 \setlength{\mainTopMargin}{0.1in}
-\newlength{\mainWidth}
-\setlength{\mainWidth}{\dimexpr \textwidth-2\headerSideMargin \relax}
+
+\newlength{\sectionSeparator}
+\setlength{\sectionSeparator}{0.1in}
 
 \topskip=0pt
 
 % Requires: 
 \newcommand{\main}{%
     \vspace*{\mainTopMargin}
-    \noindent
-    \boxes{\hobbies}
-    \section{Introduction}
 
+    \noindent
+    \begin{minipage}[t]{0.5\textwidth}
+        \begin{sectionWrapper}[isLeft=true]
+            \textbf{\Huge Internships}
+            \vspace*{\sectionSeparator}
+            \experience{\experienceFirstInternship}{\experienceFirstInternshipDescription}{\experienceFirstIntershipDate}{\expereinceFirstInternshipGainz}
+            \experience{\experienceSecondInternship}{\experienceSecondInternshipDescription}{\experienceSecondInternshipDate}{\experienceSecondInternshipGainz}
+        \end{sectionWrapper}
+        \vspace{\sectionSeparator}
+        \begin{sectionWrapper}[isLeft=true]
+            \textbf{\Huge Jobs}
+            \vspace*{\sectionSeparator}
+            \experience{\experienceFirstJob}{\experienceFirstJobDescription}{\experienceFirstJobDate}{\experienceFirstJobGainz}
+        \end{sectionWrapper}
+        \begin{sectionWrapper}[isLeft=true]
+            \textbf{\LARGE Databases}
+            \vspace*{\sectionSeparator}
+            \boxes{\databases}
+            \vspace*{\sectionSeparator}
+        \end{sectionWrapper}
+        \begin{sectionWrapper}[isLeft=true]
+            \begin{barList}[Programming Languages]
+                \foreach \language\proficiency in \programmingLanguages{
+                    \barValue{\language}{\proficiency}
+                }
+            \end{barList}
+        \end{sectionWrapper}
+    \end{minipage}%
+    \begin{minipage}[t]{0.5\textwidth}
+        \begin{sectionWrapper}[isLeft=false]
+            \textbf{\Huge Education}
+            \vspace*{\sectionSeparator}
+            \experience{\experienceCollege}{}{\experienceCollegeDate}{\experienceCollegeGainz}
+        \end{sectionWrapper}
+        \begin{sectionWrapper}[isLeft=false]
+            \textbf{\LARGE Interests}
+            \vspace*{\sectionSeparator}
+            \boxes{\interests}
+            \vspace*{\sectionSeparator}
+            %
+            \textbf{\LARGE Soft Skills}
+            \vspace*{\sectionSeparator}
+            \boxes{\softSkills}
+            \vspace*{\sectionSeparator}
+            %
+            \textbf{\LARGE Technical Skills}
+            \vspace*{\sectionSeparator}
+            \boxes{\technicalSkills}
+        \end{sectionWrapper}
+        \begin{sectionWrapper}[isLeft=false]
+            \begin{barList}[Languages]
+                \foreach \language\proficiency in \languages{
+                    \barValue{\language}{\proficiency}
+                }
+            \end{barList}
+        \end{sectionWrapper}
+    \end{minipage}
 }
